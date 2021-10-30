@@ -9,7 +9,7 @@ import {AiOutlineMail} from "react-icons/ai"
 
 import './Team.css'
 
-const Doctors = () => {
+const Team = () => {
     
     return (
         <div id="" className="container">
@@ -18,4 +18,4 @@ const Doctors = () => {
     );
 };
 
-export default Doctors;
+export default Team;

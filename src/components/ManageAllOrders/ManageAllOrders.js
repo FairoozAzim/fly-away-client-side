@@ -1,5 +1,5 @@
 import React from 'react';
-import useBookings from '../../hooks/userBookings';
+import useBookings from '../../hooks/useBookings';
 import SingleBooking from '../SingleBooking/SingleBooking';
 
 const ManageAllOrders = () => {

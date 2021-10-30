@@ -17,7 +17,7 @@ const Footer = () => {
                  <h4>Fly Away</h4>
                  <p className='text-muted'>This is a safe space for you. <br/> Come talk to us.</p> 
                  <h6><FaMapMarkerAlt/> 28, Nasirabad, Chittagong</h6>
-                 <h6><AiFillMail/> support@unwind.com</h6>
+                 <h6><AiFillMail/> support@fly-away.com</h6>
                  <h6><AiFillPhone/> (+031)12345567 </h6>
 
              </div>

@@ -20,7 +20,7 @@ const ServiceDetails = () => {
      const {name,description,img,duration,destination,price,rating,size,dateStart,dateEnd} = singleService;
 
      const onSubmit = data => 
-     {
+     {   data.tourName = name;
          console.log(data.tourName);
          axios.post('http://localhost:5000/bookings', data)
          .then(function(res) {
@@ -57,11 +57,8 @@ const ServiceDetails = () => {
               <input className='reg' placeholder="Address" {...register("address", { required: true})} /> <br/>
               {errors.address?.type === 'required' && <small className='text-danger'>Please give your address</small> }<br/>
               <input className='reg' defaultValue={name} {...register("tourName")} /> <br/><br/>
-              <select className='reg' {...register("gender")}>
-                <option value="female">female</option>
-                <option value="male">male</option>
-                <option value="other">other</option>
-              </select> <br/> <br/>
+              <input className='reg' placeholder="Number of Persons" {...register("persons")} /> <br/><br/>
+              
               <select className='reg' {...register("payment")}>
                 <option value="first">Payment Option</option>
                 <option value="bank">Bank Payment</option>

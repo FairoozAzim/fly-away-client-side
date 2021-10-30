@@ -28,7 +28,7 @@ const Header = () => {
          loggedIn && <Nav.Link as={Link} to="/home" className="nav-item">{user.displayName}</Nav.Link>
       }
       {
-        loggedIn && <Nav.Link as={Link} to="/orderHistory" className="nav-item">Booking History</Nav.Link>
+        loggedIn && <Nav.Link as={Link} to = {`/orderHistory/${user.email}`} className="nav-item">Booking History</Nav.Link>
       }
       {
         loggedIn && <Nav.Link as={Link} to="/manageOrders" className="nav-item">Manage Bookings</Nav.Link>

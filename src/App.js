@@ -45,7 +45,7 @@ function App() {
         <Route path ='/register'>
          <Registration></Registration>
         </Route>
-        <PrivateRoute path='/orderHistory'>
+        <PrivateRoute path='/orderHistory/:email'>
           <OrderHistory></OrderHistory>
         </PrivateRoute>
         <PrivateRoute path='/manageOrders'>
