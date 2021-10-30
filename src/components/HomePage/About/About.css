@@ -1,0 +1,16 @@
+.about{
+    margin-top: 5%;
+}
+.about-text{
+    width: 60%;
+    margin-left: 20px;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    color: gray;
+}
+.header{
+    color:var(--orange-color);
+    font-size: 35px;
+    text-align: center;
+    font-weight: bold;
+}

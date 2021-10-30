@@ -1,0 +1,9 @@
+.register{
+    text-transform: uppercase;
+    border-radius: 2px;
+    border: none;
+    font-weight:bold;
+    background-color: white !important;
+    border: 1px solid lightgray;
+    padding: 15px;
+}

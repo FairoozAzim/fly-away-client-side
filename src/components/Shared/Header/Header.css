@@ -1,0 +1,53 @@
+.orange{
+    background-color: #a15547;
+    color:#ffffff;
+   
+
+}
+.nav-item{
+    color:white !important;
+    font-size: 13px;
+    font-weight: light;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.nav-item:hover{
+    font-weight: bold;
+}
+.button{
+    border: none;
+    background-color: var(--orange-color);
+    color: white;
+    font-size: 13px;
+    font-weight: light;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+
+}
+
+.button:hover{
+    background-color: var(--light-orange);
+    font-weight: bolder;
+}
+
+.ms{
+    margin-left: 150px;
+    background-color: var(--green-color);
+    color: white;
+    border-radius: 2px;
+    font-size: 15px;
+    padding: 5px;
+}
+@media only screen and (max-width: 600px) {
+    .ms{
+         margin-left: 0px;
+         padding: 10px;
+    }
+}
+@media only screen and (max-width: 998px) {
+    .ms{
+         margin-left: 0px;
+         padding: 10px;
+    }
+}

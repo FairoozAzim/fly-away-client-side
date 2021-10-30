@@ -1,0 +1,23 @@
+.doctor-card{
+    width: 380px;
+    border: none;
+    position: relative;
+    background-color: var(--orange-color);
+}
+.details{
+    width: 360px;
+    top: 80%;
+    background-color: var(--orange-color);
+    height: 150px;
+}
+.card-image{
+  width: 380px;
+  height: 350px;
+  
+}
+
+.bg{
+    background-color: var(--green-color);
+    padding: 6px;
+    font-size: 36px;
+}
