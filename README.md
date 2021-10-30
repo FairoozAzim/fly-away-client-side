@@ -1,10 +1,15 @@
 # About the Project
-This is a demo website for a Mental Health Care Center.
+This is a demo Tourism Website.
 ## Tech Stack Used
-This project is build using React, Firebase Authentication, React-Bootstrap
+This project is build using React, Firebase Authentication, React-Bootstrap, MongoDb for Database
 
 ### Functionalities
 
-* Firebase Authentication
-* Services, Service Details, Forms using React Hook Form
-* Email-password and Google Login
+* Firebase Authentication for Email-password and Google Login
+* Tour Packages Details
+* Booking History
+* Manage all bookings 
+* Add new tour plan
+* Delete a booking
+* Update Booking status
+* In summary, CRUD operations are implemented
