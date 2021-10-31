@@ -71,7 +71,7 @@ const ManageAllOrders = () => {
                 <div className="d-flex flex-column flex-lg-row">
                 <p className="me-2">{booking.name}</p>
                 {
-                    (booking.status === 'Confirmed')?<button  type="button" className="btn btn-primary me-2 d-none" onClick={() => handleStatusChange(booking)}>Confirm Booking</button> :
+                    (booking.status === 'Confirmed')?<button  type="button" className="btn btn-primary me-2 d-none" onClick={() => handleStatusChange(booking._id)}>Confirm Booking</button> :
                     <button  type="button" className="btn btn-primary me-2 " onClick={() => handleStatusChange(booking._id)}>Confirm Booking</button> 
                 }
                               
@@ -88,7 +88,7 @@ const ManageAllOrders = () => {
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onClick={() => handleDelete(booking._id)}data-bs-dismiss="modal" >Delete</button>
+                            <button type="button" class="btn btn-primary" onClick={() => handleDelete(booking._id)} data-bs-dismiss="modal" >Delete</button>
                         </div>
                         </div>
                     </div>
