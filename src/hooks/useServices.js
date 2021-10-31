@@ -12,7 +12,7 @@ const useServices = () => {
             setLoading(true);
         });
     },[])
-    console.log(loading);
+    //console.log(loading);
 
     return [services, setServices,loading];
 }

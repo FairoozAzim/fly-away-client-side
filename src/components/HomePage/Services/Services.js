@@ -6,11 +6,13 @@ import './Service.css'
 
 const Services = () => {
     const [services] = useServices();
-    console.log(services.length);
+    //console.log(services.length);
     if(services.length === 0) {
-        return <Spinner animation="border" role="status" className="text-center fs-2">
-        <span className="">Loading...</span>
+        return <div className="d-flex align-items-center justify-content-center fs-2">
+            <Spinner animation="border" role="status" >
+        <span className="visually-hidden text-center">Loading...</span>
       </Spinner>
+        </div> 
     }
     else {
       return (

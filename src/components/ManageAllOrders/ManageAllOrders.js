@@ -1,13 +1,19 @@
 
-import React, {  useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import useBookings from '../../hooks/useBookings';
 import SingleBooking from '../SingleBooking/SingleBooking';
 import './ManageOrders.css'
 
 const ManageAllOrders = () => {
-    const [bookings,setBookings] = useBookings();
+    const [bookings,setBookings] = useState([]);
     const [singleBooking, setSingleBooking ] = useState({});
-    
+
+    useEffect(() => {
+        fetch('https://ghastly-barrow-08872.herokuapp.com/bookings')
+        .then(res => res.json())
+        .then(data => setBookings(data));
+    },[singleBooking]);
+
   
     const handleDelete = id => {
         const url = `https://ghastly-barrow-08872.herokuapp.com/bookings/${id}`;
@@ -27,16 +33,13 @@ const ManageAllOrders = () => {
      }
      
      
-     const handleStatusChange = booking => {
-         
-     const singlebooking = booking;
-     const {_id, status, ...other} = singlebooking;
-     console.log(...other);
-     const updateBooking = {...other, status : 'Confirmed'};
+     const handleStatusChange = id => {
+      
+     const updateBooking = {...singleBooking, 'status' : 'Confirmed'};
      setSingleBooking(updateBooking);
      console.log(singleBooking);
 
-     const url = `https://ghastly-barrow-08872.herokuapp.com/bookings/${booking._id}`;
+     const url = `https://ghastly-barrow-08872.herokuapp.com/bookings/${id}`;
      fetch(url, {
          method: 'PUT',
          headers: {
@@ -69,7 +72,7 @@ const ManageAllOrders = () => {
                 <p className="me-2">{booking.name}</p>
                 {
                     (booking.status === 'Confirmed')?<button  type="button" className="btn btn-primary me-2 d-none" onClick={() => handleStatusChange(booking)}>Confirm Booking</button> :
-                    <button  type="button" className="btn btn-primary me-2 " onClick={() => handleStatusChange(booking)}>Confirm Booking</button> 
+                    <button  type="button" className="btn btn-primary me-2 " onClick={() => handleStatusChange(booking._id)}>Confirm Booking</button> 
                 }
                               
                 <button className="btn button p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Delete Booking</button>
