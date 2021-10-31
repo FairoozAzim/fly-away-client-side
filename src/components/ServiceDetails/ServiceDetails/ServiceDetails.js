@@ -42,9 +42,9 @@ const ServiceDetails = () => {
     return (
         <div className='container'>
            <h1 className='header mb-5'><span>{name}</span></h1>
-           <img className="mx-auto w-50 d-flex justify-content-center mb-3" src={img} alt=""></img>
+           <img className="mx-auto w-50 d-flex  justify-content-center mb-3" src={img} alt=""></img>
            <p className="description">{description} </p>
-           <div className ="d-flex justify-content-between">
+           <div className ="d-flex flex-column flex-lg-row justify-content-between">
            <div className="d-flex flex-column">
       
             <h2 className="mt-5">Tour Details</h2>
@@ -74,14 +74,14 @@ const ServiceDetails = () => {
                 <option value="bkash">Bkash Payment</option>
                 <option value="emi">EMI Payment</option>
               </select> <br/> <br/>
-              <input className='reg' type="hidden" {...register("status")} /> <br/><br/>
-              <input className='reg' type="hidden" {...register("image")} /> <br/><br/>
-              <input className='reg' type="hidden" {...register("dateStart")} /> <br/><br/>
-              <input className='reg' type="hidden" {...register("dateEnd")} /> <br/><br/>
-              <input className='reg' type="hidden" {...register("size")} /> <br/><br/>
-              <input className='reg' type="hidden" {...register("price")} /> <br/><br/>
+              <input  type="hidden" {...register("status")} /> <br/><br/>
+              <input  type="hidden" {...register("image")} /> <br/><br/>
+              <input  type="hidden" {...register("dateStart")}/>
+              <input  type="hidden" {...register("dateEnd")} /> <br/><br/>
+              <input  type="hidden" {...register("size")} /> <br/><br/>
+              <input  type="hidden" {...register("price")} /> <br/><br/>
              
-              <button className='button p-3 confirm' type="submit">Confirm Booking</button>
+              <button className='button p-3 confirm mb-5' type="submit">Confirm Booking</button>
               </form>
            </div>
            </div>

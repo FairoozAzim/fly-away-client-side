@@ -7,10 +7,10 @@ const SingleBooking = (props) => {
     return (
         <div className="">
             
-            <div className="container p-lg-3 p-5 mb-4 rounded d-flex justify-content-lg-around justify-content-between singleBooking align-items-center shadow-lg">
+            <div className="container p-lg-3 p-5 mb-4 rounded d-flex flex-column flex-lg-row justify-content-around singleBooking align-items-center shadow-lg">
                 
                 <img className="img" src={image} alt=""></img>
-                <h6 className="fw-bold text-start w-25 ">{tourName}</h6>
+                <h6 className="fw-bold text-lg-start w-lg-25 w-75 text-center">{tourName}</h6>
                 <p className="d-none d-lg-block me-2 ">{dateStart}</p>
                 <p className="d-none d-lg-block me-2 ">{dateEnd}</p>
                 <p className="d-none d-lg-block me-2 ">{size} Adults</p>

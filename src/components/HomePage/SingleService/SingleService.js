@@ -4,7 +4,7 @@ import './SingleService.css'
 import {AiFillStar} from 'react-icons/ai'
 const SingleService = (props) => {
     const {_id,name,description,img,rating,price} = props.service;
-   console.log(props.service);
+   //console.log(props.service);
     return (
         <div className="col-sm-12 col-md-6 col-lg-4 mb-3">
             <div className="card course-info h-100 p-3">

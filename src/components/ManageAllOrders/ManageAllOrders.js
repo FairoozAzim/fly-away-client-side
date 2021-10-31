@@ -31,6 +31,7 @@ const ManageAllOrders = () => {
          
      const singlebooking = booking;
      const {_id, status, ...other} = singlebooking;
+     console.log(...other);
      const updateBooking = {...other, status : 'Confirmed'};
      setSingleBooking(updateBooking);
      console.log(singleBooking);
