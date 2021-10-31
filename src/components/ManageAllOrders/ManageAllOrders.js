@@ -1,21 +1,98 @@
-import React from 'react';
+
+import React, {  useState } from 'react';
 import useBookings from '../../hooks/useBookings';
 import SingleBooking from '../SingleBooking/SingleBooking';
+import './ManageOrders.css'
 
 const ManageAllOrders = () => {
-    const [bookings] = useBookings();
-    console.log(bookings);
+    const [bookings,setBookings] = useBookings();
+    const [singleBooking, setSingleBooking ] = useState({});
+    
+  
+    const handleDelete = id => {
+        const url = `https://ghastly-barrow-08872.herokuapp.com/bookings/${id}`;
+        console.log(url);
+        fetch(url, {
+            method : 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.deletedCount > 0) {
+                alert('Deleted Successfully');
+                const remaining = bookings.filter(booking => booking._id !== id);
+                setBookings(remaining);
+            }
+          
+        })
+     }
+     
+     
+     const handleStatusChange = booking => {
+         
+     const singlebooking = booking;
+     const {_id, status, ...other} = singlebooking;
+     const updateBooking = {...other, status : 'Confirmed'};
+     setSingleBooking(updateBooking);
+     console.log(singleBooking);
+
+     const url = `https://ghastly-barrow-08872.herokuapp.com/bookings/${booking._id}`;
+     fetch(url, {
+         method: 'PUT',
+         headers: {
+             'content-type' : 'application/json'
+         },
+         body: JSON.stringify(singleBooking)
+     })
+     .then( res => res.json())
+     .then(data => {
+         if(data.modifiedCount > 0){
+             alert('Updated Successfully');
+             setSingleBooking(data);
+             
+
+         }
+     });
+      
+    
+     }
+         
     return (
-        <div className="text-center">
-            <h1>Manage All Orders</h1>
+        <div className="text-center manage">
+            <h1 className="header mb-5">Manage<span> All Bookings</span></h1>
             {
                 bookings.map(booking => <SingleBooking
-                key = {booking._id}
+                key={booking._id}
                 booking = {booking}
-                ></SingleBooking>)
+                >
+                <div className="d-flex flex-column flex-lg-row">
+                <p className="me-2">{booking.name}</p>
+                {
+                    (booking.status === 'Confirmed')?<button  type="button" className="btn btn-primary me-2 d-none" onClick={() => handleStatusChange(booking)}>Confirm Booking</button> :
+                    <button  type="button" className="btn btn-primary me-2 " onClick={() => handleStatusChange(booking)}>Confirm Booking</button> 
+                }
+                              
+                <button className="btn button p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Delete Booking</button>
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-center" id="staticBackdropLabel">Confirm Delete</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>  Are you sure you want to delete this booking?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onClick={() => handleDelete(booking._id)}data-bs-dismiss="modal" >Delete</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </SingleBooking>)
             }
-        </div>
+           </div>
     );
 };
-
 export default ManageAllOrders;

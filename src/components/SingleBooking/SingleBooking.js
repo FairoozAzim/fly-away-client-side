@@ -1,31 +1,23 @@
 import React from 'react';
-import useBookings from '../../hooks/useBookings';
-
+import "./SingleBooking.css"
 const SingleBooking = (props) => {
-    const {_id, name, email} = props.booking;
-    const [bookings, setBookings] = useBookings();
+    const {status,image,dateStart, dateEnd, size, price, tourName} = props.booking; 
+  
 
-    const handleDelete = id => {
-        const url = `http://localhost:5000/bookings/${_id}`;
-        fetch(url, {
-            method : 'DELETE'
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.deletedCount > 0) {
-                alert('Deleted Successfully');
-                const remainingBooking = bookings.filter(booking => booking._id !== id);
-                setBookings(remainingBooking)
-            }
-        })
-     }
     return (
-        <div>
+        <div className="">
             
-            <div className="p-2 bg-dark mb-2 rounded w-75 text-center mx-auto">
-                <p>{name}</p>
-                <p>{email}</p>
-                <button className="button p-2" onClick={() => handleDelete(_id)}>Delete Booking</button>
+            <div className="container p-lg-3 p-5 mb-4 rounded d-flex justify-content-lg-around justify-content-between singleBooking align-items-center shadow-lg">
+                
+                <img className="img" src={image} alt=""></img>
+                <h6 className="fw-bold text-start w-25 ">{tourName}</h6>
+                <p className="d-none d-lg-block me-2 ">{dateStart}</p>
+                <p className="d-none d-lg-block me-2 ">{dateEnd}</p>
+                <p className="d-none d-lg-block me-2 ">{size} Adults</p>
+                <p className="d-none d-lg-block me-2 ">${price}</p>
+                <p>Status: {status}</p>
+                
+               <div>{props.children}</div>
             </div>
             
         </div>

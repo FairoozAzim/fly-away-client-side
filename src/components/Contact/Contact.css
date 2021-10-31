@@ -1,14 +1,5 @@
-.contact-banner{
-    background-image: url(../../images/bannergif2.gif);
-    width: 450px;
-    height: 350px;
-    background-position: center;
-    margin-top: 10px;
-    border-radius: 10px;
-   
-}
 .input{
-    width: 50vw;
+    width: 55vw;
     padding: 8px;
     margin-bottom: 10px;
 }

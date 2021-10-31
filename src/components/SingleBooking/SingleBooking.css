@@ -1,0 +1,21 @@
+.img{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+.singleBooking{
+  
+  border-radius: 15px;
+  background-color: white;
+  color: navy;
+  padding: 20px;
+}
+p {
+    color: rgb(75, 73, 73);
+}
+
+@media screen and (min-width: 480px) {
+  .singleBooking{
+    width: 100vw;
+  }
+}

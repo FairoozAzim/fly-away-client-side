@@ -6,6 +6,7 @@ import { FaLinkedin } from 'react-icons/fa';
 import {FaMapMarkerAlt} from 'react-icons/fa'
 import {AiFillPhone} from 'react-icons/ai';
 import {AiFillMail} from 'react-icons/ai';
+import icon from '../../../images/icon.png'
 
 
 const Footer = () => {
@@ -14,8 +15,8 @@ const Footer = () => {
         <div className="f-footer d-flex flex-column flex-lg-row justify-content-between text-white">
             <div className='d-flex flex-column flex-lg-row justify-content-around container'>
              <div>
-                 <h4>Fly Away</h4>
-                 <p className='text-muted'>This is a safe space for you. <br/> Come talk to us.</p> 
+                 <h4><img src={icon} alt="" className="icon"></img>Fly Away</h4>
+                 <p className='text-muted'>Making your dream vacation come true.</p> 
                  <h6><FaMapMarkerAlt/> 28, Nasirabad, Chittagong</h6>
                  <h6><AiFillMail/> support@fly-away.com</h6>
                  <h6><AiFillPhone/> (+031)12345567 </h6>

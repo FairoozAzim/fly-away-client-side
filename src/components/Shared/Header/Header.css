@@ -1,9 +1,4 @@
-.orange{
-    background-color: #a15547;
-    color:#ffffff;
-   
 
-}
 .nav-item{
     color:white !important;
     font-size: 13px;
@@ -13,6 +8,8 @@
 }
 .nav-item:hover{
     font-weight: bold;
+    color: goldenrod;
+    transition: 2s;
 }
 .button{
     border: none;
@@ -27,8 +24,10 @@
 }
 
 .button:hover{
-    background-color: var(--light-orange);
     font-weight: bolder;
+    background-color: black;
+    border: 1px solid goldenrod;
+
 }
 
 .ms{
@@ -38,6 +37,9 @@
     border-radius: 2px;
     font-size: 15px;
     padding: 5px;
+}
+.icon{
+    width: 40px;
 }
 @media only screen and (max-width: 600px) {
     .ms{

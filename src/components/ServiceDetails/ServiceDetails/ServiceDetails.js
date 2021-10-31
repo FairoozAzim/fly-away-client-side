@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useParams } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import './ServiceDetails.css'
+import {AiOutlineRight} from 'react-icons/ai';
 
 const ServiceDetails = () => {
     const {serviceId} = useParams();
@@ -12,7 +14,7 @@ const ServiceDetails = () => {
 
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/tourCollection/${serviceId}`)
+        fetch(`https://ghastly-barrow-08872.herokuapp.com/tourCollection/${serviceId}`)
         .then(res => res.json())
         .then(data => setSingleService(data));
     },[])
@@ -21,8 +23,14 @@ const ServiceDetails = () => {
 
      const onSubmit = data => 
      {   data.tourName = name;
-         console.log(data.tourName);
-         axios.post('http://localhost:5000/bookings', data)
+         data.status = "Pending";
+         data.image = img;
+         data.dateStart = dateStart;
+         data.dateEnd = dateEnd;
+         data.size = size;
+         data.price = price;
+         //console.log(data);
+         axios.post('https://ghastly-barrow-08872.herokuapp.com/bookings', data)
          .then(function(res) {
            alert('Order Confirmed');
            reset();
@@ -33,23 +41,23 @@ const ServiceDetails = () => {
     
     return (
         <div className='container'>
-           <h1 className='header mb-5'>{name}</h1>
-           <img src={img} alt=""></img>
-           <p>{description} </p>
+           <h1 className='header mb-5'><span>{name}</span></h1>
+           <img className="mx-auto w-50 d-flex justify-content-center mb-3" src={img} alt=""></img>
+           <p className="description">{description} </p>
            <div className ="d-flex justify-content-between">
            <div className="d-flex flex-column">
       
-            <h2>Tour Details</h2>
-            <p>Destination: {destination}</p>
-            <p>Price: {price}</p>
-            <p>Duration: {duration}</p>
-            <p>From {dateStart} To {dateEnd} </p>
-            <p>Rating: {rating}</p>
-            <p>People: {size}</p>
+            <h2 className="mt-5">Tour Details</h2>
+            <p className="fw-bold fs-5"><AiOutlineRight/>Destination: {destination}</p>
+            <p className="fw-bold fs-5"><AiOutlineRight/>Price: {price}</p>
+            <p className="fw-bold fs-5"><AiOutlineRight/>Duration: {duration}</p>
+            <p className="fw-bold fs-5"><AiOutlineRight/>From {dateStart} To {dateEnd} </p>
+            <p className="fw-bold fs-5"><AiOutlineRight/>Rating: {rating}</p>
+            <p className="fw-bold fs-5"><AiOutlineRight/>Seat remaining: {size}</p>
 
            </div>
            <div>
-             <h2>Confirm Booking</h2>
+             <h2 className="mt-5">Confirm Booking</h2>
              <form onSubmit={handleSubmit(onSubmit)}>
               <input className='reg' defaultValue={user.displayName} {...register("name")}/> <br/>
               <br/>
@@ -66,17 +74,21 @@ const ServiceDetails = () => {
                 <option value="bkash">Bkash Payment</option>
                 <option value="emi">EMI Payment</option>
               </select> <br/> <br/>
+              <input className='reg' type="hidden" {...register("status")} /> <br/><br/>
+              <input className='reg' type="hidden" {...register("image")} /> <br/><br/>
+              <input className='reg' type="hidden" {...register("dateStart")} /> <br/><br/>
+              <input className='reg' type="hidden" {...register("dateEnd")} /> <br/><br/>
+              <input className='reg' type="hidden" {...register("size")} /> <br/><br/>
+              <input className='reg' type="hidden" {...register("price")} /> <br/><br/>
              
-              <button className='button p-2' type="submit">Confirm Booking</button>
+              <button className='button p-3 confirm' type="submit">Confirm Booking</button>
               </form>
            </div>
-
-
            </div>
            
-           <div className="d-flex justify-content-around mt-4">
+           <div className="d-flex back">
            <Link to='/home'>
-             <button className="button text-center p-2">Back to Home</button>
+             <button className="button p-3 ">Back to Home</button>
            </Link>
            </div>
             

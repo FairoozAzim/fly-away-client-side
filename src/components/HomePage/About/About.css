@@ -1,16 +1,20 @@
 .about{
     margin-top: 5%;
 }
-.about-text{
-    width: 60%;
-    margin-left: 20px;
-    font-size: 15px;
-    font-family: 'Roboto', sans-serif;
-    color: gray;
-}
+
 .header{
-    color:var(--orange-color);
+    color:black;
     font-size: 35px;
     text-align: center;
     font-weight: bold;
+}
+.search{
+    border: 1px solid gray;
+    border-radius: 0px;
+    padding: 8px;
+}
+.submit{
+    width: 200px;
+    height: 50px;
+    margin-top: 2%;
 }

@@ -5,7 +5,8 @@ const Contact = () => {
     return (
         <div className='d-flex container'>
            <div className="container text-center">
-           <h1 className="header mt-5">Contact Us for Further Details</h1> 
+           <h1 className="header mt-5"><span>Contact </span>Us</h1> 
+           <p>If you have any query or want to request for a tour, reach us.</p>
            <input className='input' type='email' placeholder='Email'></input><br/>
            <input className='input' type='password' placeholder='Password'></input><br/>
            <textarea className='input' col="60" placeholder='Your Message'></textarea><br/>

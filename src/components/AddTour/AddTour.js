@@ -9,7 +9,7 @@ const AddTour = () => {
     const onSubmit = data => 
     {   
          console.log(data);
-        axios.post('http://localhost:5000/tourCollection', data)
+        axios.post('https://ghastly-barrow-08872.herokuapp.com/tourCollection', data)
         .then(function(res) {
           alert('Tour added successfully');
           reset();
@@ -19,7 +19,7 @@ const AddTour = () => {
     }
     return (
         <div className="text-center">
-            <h1>Add a tour</h1>
+            <h1 className="header mb-5">Add a <span>Tour</span></h1>
             <form onSubmit={handleSubmit(onSubmit)}>
               <input className='reg' placeholder="Tour Name"  {...register("name", { required: true})}/> <br/>
               
