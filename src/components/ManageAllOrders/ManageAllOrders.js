@@ -37,7 +37,7 @@ const ManageAllOrders = () => {
       
      const updateBooking = {...singleBooking, 'status' : 'Confirmed'};
      setSingleBooking(updateBooking);
-     console.log(singleBooking);
+     //console.log(singleBooking);
 
      const url = `https://ghastly-barrow-08872.herokuapp.com/bookings/${id}`;
      fetch(url, {
@@ -45,7 +45,7 @@ const ManageAllOrders = () => {
          headers: {
              'content-type' : 'application/json'
          },
-         body: JSON.stringify(singleBooking)
+         body: JSON.stringify(updateBooking)
      })
      .then( res => res.json())
      .then(data => {
@@ -75,24 +75,8 @@ const ManageAllOrders = () => {
                     <button  type="button" className="btn btn-primary me-2 " onClick={() => handleStatusChange(booking._id)}>Confirm Booking</button> 
                 }
                               
-                <button className="btn button p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Delete Booking</button>
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-center" id="staticBackdropLabel">Confirm Delete</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <p>  Are you sure you want to delete this booking?</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onClick={() => handleDelete(booking._id)} data-bs-dismiss="modal" >Delete</button>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
+                <button className="btn button p-2" onClick={() => handleDelete(booking._id)} >Delete Booking</button>
+              
                 </div>
                 </SingleBooking>)
             }
