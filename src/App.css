@@ -3,6 +3,7 @@
 .App {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+  height: 100vh;
 }
 :root {
   --orange-color : goldenrod;
